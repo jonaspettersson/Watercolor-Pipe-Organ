@@ -1,6 +1,9 @@
 /*
  * Watercolor Pipe Organ Servo Controller
- * 
+ *
+ * Jonas Pettersson, hello@jonaspettersson.se
+ * 2018-08-28
+ *
  * Use this code for the unit next to the pipe organ
  * Use rtpMidi, PC-version https://www.tobias-erichsen.de/software/rtpmidi.html
  * or on Mac OS Apple MIDI to communicate directly with the arduino

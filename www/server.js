@@ -20,10 +20,8 @@ io.on('connection', function (socket) {
         console.log(data);
     });
     socket.on('getdata', function (data) {
-        io.emit('getdata', { oruk: 'apan saba' });
+        io.emit('getdata', { oruk: 'test' });
     });
-
-
 
 
     socket.on('midi', function (data) {

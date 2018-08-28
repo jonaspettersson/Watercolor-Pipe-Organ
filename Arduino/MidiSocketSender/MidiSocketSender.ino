@@ -26,7 +26,7 @@
 
 String socketserver = "organ.jonaspettersson.se";
 String ssid = "";
-String pass = ""
+String pass = "";
 
 
 // Json

@@ -26,8 +26,6 @@ io.on('connection', function (socket) {
 
     socket.on('midi', function (data) {
 
-        //io.emit('onmidi', { a: '1', c: '0', n: '66', v: '80' });
-        //socket.broadcast.emit('onmidi', { hello2: 'a user emits' });
 
 		try {
 		
@@ -47,28 +45,6 @@ io.on('connection', function (socket) {
 			console.error(error);
 		}
 
-
-
-        //socket.emit('onmidi', { midi: 'tra la la' });
-        //socket.broadcast.emit('onmidi', 'hello friends!');
-
-        //console.log('onmidi---');
-
-        //var arr = data.split('#');
-
-
-        //var a = arr[0];	// Action eg  NoteOn = 1, NoteOff = 0
-        //var c = arr[1];	// Midi Channel
-        //var n = arr[2]; // Note
-        //var v = arr[3];	// Velocity
-
-        //socket.broadcast.emit('onmidi', { a: a, c: c, n: n,v: v });
-
-        //var midiobj = {a:a, c:c, n:n, v:v};
-
-        //socket.broadcast.emit('onmidi', 'hello friends!');
-        //socket.emit('onmidi', { midi: 'tra la la' });
-        //console.log(data);
 
     });
 

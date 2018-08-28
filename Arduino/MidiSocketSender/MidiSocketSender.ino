@@ -1,9 +1,6 @@
 /*
  * Watercolor Pipe Organ Servo Controller
  * 
- * Jonas Pettersson, hello@jonaspettersson.se
- * 2018-08-28
- * 
  * Use this code for units working as USB Midi-devices.
  * Use rtpMidi, PC-version https://www.tobias-erichsen.de/software/rtpmidi.html
  * or on Mac OS Apple MIDI to communicate directly with the arduino
@@ -23,10 +20,10 @@
 /*
  * Connections
  */
-
-String socketserver = "organ.jonaspettersson.se"; // Your socket server at port 443
-String ssid = "";   // Add SSID
-String pass = "";   // Add SSID passw if needed
+ 
+const char* socketserver = "organ.jonaspettersson.se";
+const char* ssid     = "your-ssid";
+const char* pass = "your-password";
 
 
 // Json
@@ -270,5 +267,4 @@ void blinkred(int rep) {
       }
 
   }
-
 

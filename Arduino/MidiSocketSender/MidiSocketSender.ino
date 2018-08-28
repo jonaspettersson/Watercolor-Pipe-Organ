@@ -24,9 +24,9 @@
  * Connections
  */
 
-String socketserver = "organ.jonaspettersson.se";
-String ssid = "";
-String pass = "";
+String socketserver = "organ.jonaspettersson.se"; // Your socket server at port 443
+String ssid = "";   // Add SSID
+String pass = "";   // Add SSID passw if needed
 
 
 // Json

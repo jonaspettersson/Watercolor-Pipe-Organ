@@ -1,0 +1,16 @@
+Application has thrown an uncaught exception and is terminated:
+C:\inetpub\wwwroot\organ.jonaspettersson.se\server.js:51
+		}
+		^
+
+SyntaxError: missing ) after argument list
+    at new Script (vm.js:51:7)
+    at createScript (vm.js:138:10)
+    at Object.runInThisContext (vm.js:199:10)
+    at Module._compile (module.js:624:28)
+    at Object.Module._extensions..js (module.js:671:10)
+    at Module.load (module.js:573:32)
+    at tryModuleLoad (module.js:513:12)
+    at Function.Module._load (module.js:505:3)
+    at Module.require (module.js:604:17)
+    at require (internal/module.js:11:18)

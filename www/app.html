@@ -1,0 +1,157 @@
+<html>
+<head>
+
+    <style>
+        body {
+            background-color: #414141;
+            color: #c6c6c6;
+            font-family: Verdana;
+            text-align: center;
+            letter-spacing: 0.2em;
+            padding: 40px;
+        }
+
+        .pianocontent {
+            padding: 10px;
+            background-color: #ffb532;
+        }
+
+        .keyB {
+            background-color: black;
+            border: 1px solid black;
+            display: inline-block;
+            width: 2.1%;
+            height: 90px;
+            margin-left: -1.2%;
+            margin-right: -1%;
+            z-index: 100;
+            position: relative;
+        }
+
+            .keyB:hover {
+                background-color: #8495df;
+            }
+
+        .keyW {
+            background-color: white;
+            border: 1px solid black;
+            display: inline-block;
+            width: 2.7%;
+            height: 170px;
+            z-index: 99;
+            position: relative;
+        }
+
+            .keyW:hover {
+                background-color: #8495df;
+            }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+
+        $(document).ready(function () {
+
+            var socket = io();
+            createPiano();
+
+            socket.on('news', function (data) {
+                console.log(data);
+            });
+
+
+            socket.on('onmidi', function (data) {
+
+                
+                    var midi = data;
+                    var a = midi.a;
+                    var n = midi.n;
+					
+					
+
+					var element = document.getElementById(n);
+					if (element){
+					
+						var r = n-(Math.floor(((n/12)))*12)+1;
+						
+						if (a==1) {
+							element.style.backgroundColor = '#8495df';
+						} else {
+							if (r == 2 || r == 4 || r == 7 || r == 9 || r == 11) {
+								element.style.backgroundColor = '#000000';
+							} else {
+								element.style.backgroundColor = '#ffffff';
+							}
+							
+						}
+					}
+                   
+
+            });
+
+
+            $(".keyB, .keyW").mousedown(function (s, e) {
+
+                var keyID = $(this).prop("id");
+                var action = 1;
+                socket.emit('midi', { a: '1', c: '1', n: keyID, v: '80' });
+
+            });
+
+            $(".keyB, .keyW").mouseup(function (s, e) {
+
+                var keyID = $(this).prop("id");
+                var action = 0;
+                socket.emit('midi', { a: '0', c: '1', n: keyID, v: '80' });
+
+            });
+
+			
+
+
+
+
+            function createPiano() {
+
+				var startOctave=48; // C2
+                var octaves = 4; 	// 4
+                var notes = 12; 	// 12
+                var o;
+                var n;
+
+
+                for (o = 1; o <= octaves; o++) {
+                    for (n = 1; n <= notes; n++) {
+
+                        var midinote =  (startOctave + ((o - 1) * notes)) + (n - 1);
+						var x = document.createElement("div");
+						x.setAttribute("id", midinote);
+						x.innerHTML="&nbsp;";
+						
+                        if (n == 2 || n == 4 || n == 7 || n == 9 || n == 11) {
+                            // Black Key
+							x.setAttribute("class", "keyB"); 
+							
+                        } else {
+                            // White Key
+							x.setAttribute("class", "keyW"); 
+                        }
+						$('#pianoroll').append(x);
+                    }
+                }
+
+            }
+
+        });
+    </script>
+</head>
+<body>
+    <h1>REMOTE MIDI STREAM</h1>
+    <div class="pianocontent" id="pianoroll">
+    </div>
+   
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "node-blank",
+  "version": "0.0.0",
+  "description": "NodeBlank",
+  "main": "server.js",
+  "author": {
+    "name": "jpn"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "socket.io": "^2.1.1"
+  }
+}
